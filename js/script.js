@@ -1,9 +1,11 @@
 // # elements
 
 const mailContainer = document.getElementById("email-list-container");
+const generateBtn = document.getElementById("generate-btn");
+
 let generatedMail;
 
-// # API
+// # email generation
 
 for (let i = 0; i < 10; i++) {
   fetch("https://flynn.boolean.careers/exercises/api/random/mail")
@@ -14,3 +16,8 @@ for (let i = 0; i < 10; i++) {
       mailContainer.innerHTML += `<li>${generatedMail}</li>`;
     });
 }
+
+generateBtn.addEventListener("click", () => {
+  console.clear();
+  mailContainer.innerHTML = ``;
+});
