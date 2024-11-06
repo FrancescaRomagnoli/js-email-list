@@ -11,5 +11,6 @@ for (let i = 0; i < 10; i++) {
     .then((data) => {
       generatedMail = data.response;
       console.log(generatedMail);
+      mailContainer.innerHTML += `<li>${generatedMail}</li>`;
     });
 }
