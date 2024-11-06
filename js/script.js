@@ -13,11 +13,20 @@ for (let i = 0; i < 10; i++) {
     .then((data) => {
       generatedMail = data.response;
       console.log(generatedMail);
-      mailContainer.innerHTML += `<li>${generatedMail}</li>`;
+      mailContainer.innerHTML += `<li class="list-group-item">${generatedMail}</li>`;
     });
 }
 
 generateBtn.addEventListener("click", () => {
   console.clear();
   mailContainer.innerHTML = ``;
+  for (let i = 0; i < 10; i++) {
+    fetch("https://flynn.boolean.careers/exercises/api/random/mail")
+      .then((response) => response.json())
+      .then((data) => {
+        generatedMail = data.response;
+        console.log(generatedMail);
+        mailContainer.innerHTML += `<li class="list-group-item">${generatedMail}</li>`;
+      });
+  }
 });
